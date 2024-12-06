@@ -5,39 +5,39 @@
   box-sizing: border-box;
 }
 
-/* Pastikan body tidak meluas ke kanan */
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   background-color: #f4f4f4;
   color: #333;
-  overflow-x: hidden; /* Mencegah scrollbar horizontal */
+  overflow-x: hidden; /* Menghindari kelebihan layar secara horizontal */
 }
 
-/* Kontainer utama untuk mencegah elemen meluas */
-.container {
+/* Top bar */
+.top-bar {
+  background-color: #333;
+  color: white;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  max-width: 100%;
-  overflow-x: hidden; /* Mencegah konten meluas */
 }
 
-/* Gunakan max-width untuk elemen gambar dan media agar responsif */
-img,
-video,
-iframe {
-  max-width: 100%;
-  height: auto;
+.top-bar a {
+  color: #1e90ff;
+  text-decoration: none;
+  margin-left: 10px;
 }
 
-/* Pastikan carousel mengikuti lebar layar */
-#campusCarousel {
-  width: 100%;
-  overflow: hidden;
+.top-bar .contact-info {
+  display: flex;
+  align-items: center;
 }
 
-.carousel-item img {
-  width: 100%;
-  height: auto;
+.top-bar .social-icons a {
+  color: white;
+  margin-left: 10px;
 }
 
 /* Navbar */
@@ -49,50 +49,140 @@ iframe {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  box-sizing: border-box;
 }
 
-/* Memastikan navbar tidak meluas */
+.navbar img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.navbar .logo span {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Navbar links */
 .navbar .nav-links {
   display: flex;
   align-items: center;
-  flex-wrap: wrap; /* Memungkinkan item untuk membungkus pada layar kecil */
-  width: 100%;
 }
 
 .navbar .nav-links a {
   color: white;
   text-decoration: none;
-  padding: 10px;
-  font-size: 18px;
-  width: auto; /* Pastikan lebar item navigasi dinamis */
+  margin: 0 10px;
 }
 
-/* Menghindari scroll horizontal pada elemen kolom */
-.promotions .col-md-4 {
-  flex: 1;
-  padding: 20px;
-  margin: 0 15px;
-  background-color: #f4f4f4;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Dropdown Menu Style */
+.navbar .nav-links .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #7569b6;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  padding: 0;
+}
+
+.navbar .nav-links .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.navbar .nav-links .dropdown-content a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.navbar .nav-links .dropdown-content a:hover {
+  background-color: #7a1f8f;
+}
+
+/* Flag alignment */
+.navbar .flag {
+  height: 20px;
+  width: 30px;
+  margin-left: 10px;
+  align-self: center;
+}
+
+/* Carousel */
+#campusCarousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-item {
+  height: 500px;
   max-width: 100%;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-caption {
+  bottom: 50px;
+  text-align: center;
+}
+
+.carousel-caption h5 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-caption p {
+  font-size: 18px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Promotions Section */
+.promotions {
+  background-color: #fff;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.promotions h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #003366;
 }
 
 .promotions .row {
   display: flex;
   justify-content: space-around;
   text-align: center;
-  flex-wrap: wrap; /* Membungkus elemen jika ruang terbatas */
-  width: 100%;
+  flex-wrap: wrap; /* Allow wrapping */
 }
 
-/* Mengatur header dan konten agar responsif pada perangkat kecil */
-.promotions h2 {
-  font-size: 32px;
-  margin-bottom: 30px;
-  color: #003366;
-  word-wrap: break-word;
+.promotions .col-md-4 {
+  flex: 1 1 30%;
+  padding: 20px;
+  margin: 15px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
 
 .promotions .col-md-4 h4 {
@@ -106,25 +196,36 @@ iframe {
   color: #555;
 }
 
-/* Membatasi margin pada elemen */
+.promotions .col-md-4:hover {
+  background-color: #003366;
+  color: #fff;
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
 @media screen and (max-width: 768px) {
-  /* Menghindari konten meluas pada layar kecil */
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-    overflow-x: hidden; /* Mencegah scrollbar horizontal */
+  .carousel-caption h5 {
+    font-size: 28px;
   }
 
-  /* Gambar responsif pada carousel */
-  .carousel-item img {
-    width: 100%;
-    height: auto;
+  .carousel-caption p {
+    font-size: 16px;
   }
 
+  .promotions .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .promotions .col-md-4 {
+    width: 80%;
+    margin-bottom: 30px;
+  }
+
+  /* Navbar */
   .navbar .nav-links {
-    display: none; /* Menyembunyikan menu pada layar kecil */
+    display: none;
     width: 100%;
     text-align: center;
     flex-direction: column;
@@ -135,10 +236,11 @@ iframe {
     z-index: 1;
   }
 
-  .navbar.active .nav-links {
-    display: flex;
+  .navbar .nav-links a {
+    margin: 15px 0;
   }
 
+  /* Hamburger Icon */
   .navbar .hamburger {
     display: block;
     cursor: pointer;
@@ -152,19 +254,43 @@ iframe {
     transition: all 0.3s ease;
   }
 
-  /* Memastikan setiap kolom berada dalam batas layar */
-  .promotions .row {
-    flex-direction: column;
-    align-items: center;
+  /* Hamburger icon animation when active */
+  .navbar.active .hamburger div:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 10px;
   }
 
-  .promotions .col-md-4 {
-    width: 90%; /* Membuat kolom lebih kecil di layar kecil */
-    margin-bottom: 20px;
+  .navbar.active .hamburger div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar.active .hamburger div:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -10px;
+  }
+
+  /* Show menu when hamburger clicked */
+  .navbar.active .nav-links {
+    display: flex;
   }
 }
 
-/* Pengaturan lebih lanjut pada layar sangat kecil (misalnya ponsel dengan layar 320px) */
+/* Navbar links */
+.navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 18px;
+}
+
+/* Adjust logo and navbar for smaller screens */
+.navbar .logo span {
+  font-size: 20px;
+}
+
+/* Additional mobile-friendly adjustments */
 @media screen and (max-width: 480px) {
   .carousel-caption h5 {
     font-size: 24px;
@@ -186,6 +312,7 @@ iframe {
     font-size: 14px;
   }
 }
+
 /* Gaya untuk Section Sejarah Kampus */
 .Sejarah {
   background-color: #f4f4f4; /* Latar belakang abu-abu muda */
