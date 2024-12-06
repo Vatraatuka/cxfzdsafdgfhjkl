@@ -219,8 +219,9 @@ body {
   }
 
   .promotions .col-md-4 {
-    width: 80%;
-    margin-bottom: 30px;
+    width: 90%; /* Menyesuaikan lebar kolom */
+    margin: 10px 0; /* Mengurangi margin untuk layar lebih kecil */
+    padding: 15px; /* Mengurangi padding pada mobile */
   }
 
   /* Navbar */
@@ -310,6 +311,11 @@ body {
 
   .promotions .col-md-4 p {
     font-size: 14px;
+  }
+
+  .promotions .col-md-4 {
+    margin: 10px 0; /* Memperbaiki margin pada layar kecil */
+    padding: 12px; /* Mengurangi padding untuk lebih efisien */
   }
 }
 
